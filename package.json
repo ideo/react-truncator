@@ -1,7 +1,7 @@
 {
-  "name": "horizontal-truncator",
+  "name": "react-truncator",
   "version": "0.0.1",
-  "description": "A truncator react component that horizontally truncates text",
+  "description": "A react component that horizontally truncates text",
   "main": "build/index.js",
   "peerDependencies": {
     "react": "^16.3"
