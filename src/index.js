@@ -18,12 +18,12 @@ class Truncator extends React.Component {
     window.addEventListener('resize', this.onResize)
   }
 
-  componentWillUnmount() {
-    window.removeEventListener('resize', this.onResize)
-  }
-
   componentWillReceiveProps(nextProps) {
     this.truncate()
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.onResize)
   }
 
   _onResize = () => {
@@ -31,7 +31,6 @@ class Truncator extends React.Component {
   }
 
   truncate = () => {
-    console.log("TURNCATE")
     const { text } = this.props
     const el = this.elRef
     if (!el) return

@@ -1,19 +1,18 @@
 import React from 'react'
-import {shallow} from 'enzyme'
+import { shallow } from 'enzyme'
 import Truncator from '../src/index'
 
 describe('Truncator', () => {
-  let component, props, wrapper
+  let pros, wrapper
 
   beforeEach(() => {
-    props = {
+    pros = {
       text: 'hello low',
       extraSpacing: 20,
     }
     wrapper = shallow(
-      <Truncator {...props} />
+      <Truncator {...pros} />
     )
-    component = wrapper.instance()
   })
 
   describe('constructor()', () => {
@@ -22,7 +21,7 @@ describe('Truncator', () => {
     })
 
     it('should set alteredText to the text prop', () => {
-      expect(wrapper.state().alteredText).toEqual(props.text)
+      expect(wrapper.state().alteredText).toEqual(pros.text)
     })
   })
 })

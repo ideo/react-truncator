@@ -290,7 +290,11 @@ var _lodash = __webpack_require__(3);
 
 var _lodash2 = _interopRequireDefault(_lodash);
 
-var _propTypes = __webpack_require__(6);
+var _react = __webpack_require__(6);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = __webpack_require__(7);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
@@ -317,6 +321,7 @@ var Truncator = function (_React$Component) {
     };
 
     _this.truncate = function () {
+      console.log("TURNCATE");
       var text = _this.props.text;
 
       var el = _this.elRef;
@@ -339,7 +344,7 @@ var Truncator = function (_React$Component) {
       }
     };
 
-    _this.elRef = React.createRef();
+    _this.elRef = _react2.default.createRef();
     _this.state = {
       truncated: false,
       alteredText: props.text
@@ -374,7 +379,7 @@ var Truncator = function (_React$Component) {
           alteredText = _state.alteredText,
           truncated = _state.truncated;
 
-      return React.createElement(
+      return _react2.default.createElement(
         'div',
         { style: this.mainStyles, ref: function ref(el) {
             return _this2.elRef = el;
@@ -406,7 +411,7 @@ var Truncator = function (_React$Component) {
   }]);
 
   return Truncator;
-}(React.Component);
+}(_react2.default.Component);
 
 Truncator.propTypes = {
   text: _propTypes2.default.string.isRequired,
@@ -17590,6 +17595,12 @@ module.exports = function(module) {
 
 /***/ }),
 /* 6 */
+/***/ (function(module, exports) {
+
+module.exports = require("react");
+
+/***/ }),
+/* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(process) {/**
@@ -17614,17 +17625,17 @@ if (process.env.NODE_ENV !== 'production') {
   // By explicitly using `prop-types` you are opting into new development behavior.
   // http://fb.me/prop-types-in-prod
   var throwOnDirectAccess = true;
-  module.exports = __webpack_require__(7)(isValidElement, throwOnDirectAccess);
+  module.exports = __webpack_require__(8)(isValidElement, throwOnDirectAccess);
 } else {
   // By explicitly using `prop-types` you are opting into new production behavior.
   // http://fb.me/prop-types-in-prod
-  module.exports = __webpack_require__(10)();
+  module.exports = __webpack_require__(11)();
 }
 
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 7 */
+/* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -17637,10 +17648,10 @@ if (process.env.NODE_ENV !== 'production') {
 
 
 
-var assign = __webpack_require__(8);
+var assign = __webpack_require__(9);
 
 var ReactPropTypesSecret = __webpack_require__(1);
-var checkPropTypes = __webpack_require__(9);
+var checkPropTypes = __webpack_require__(10);
 
 var printWarning = function() {};
 
@@ -18187,7 +18198,7 @@ module.exports = function(isValidElement, throwOnDirectAccess) {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 8 */
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18284,7 +18295,7 @@ module.exports = shouldUseNative() ? Object.assign : function (target, source) {
 
 
 /***/ }),
-/* 9 */
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18383,7 +18394,7 @@ module.exports = checkPropTypes;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 10 */
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
