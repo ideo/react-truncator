@@ -1,4 +1,5 @@
 import _ from 'lodash'
+import React from 'react'
 import PropTypes from 'prop-types'
 
 class Truncator extends React.Component {
@@ -30,6 +31,7 @@ class Truncator extends React.Component {
   }
 
   truncate = () => {
+    console.log("TURNCATE")
     const { text } = this.props
     const el = this.elRef
     if (!el) return
