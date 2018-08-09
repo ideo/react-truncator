@@ -18,7 +18,7 @@ Currently, the truncator component works best when used with block level element
 - **extraSpacing**: Any extra spacing the text might need.
 - **minWidth**: Override the size of the space the text takes up with a minimum width
 
-```
+```js
 import Truncator from 'react-truncator'
 
 // ...
