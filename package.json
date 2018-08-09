@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "description": "A react component that horizontally truncates text",
   "main": "build/index.js",
+  "license" : "MIT",
   "peerDependencies": {
     "react": "^16.3"
   },
