@@ -21,7 +21,8 @@ describe('Truncator', () => {
     })
 
     it('should set alteredText to the text prop', () => {
-      expect(wrapper.state().alteredText).toEqual(props.text)
+      const { text } = props
+      expect(wrapper.state().alteredText).toEqual(text)
     })
   })
 })

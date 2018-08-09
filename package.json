@@ -32,7 +32,8 @@
     "test": "jest",
     "start": "webpack --watch",
     "build": "webpack",
-    "prepublish": "npm run eslint ./src && npm test && npm run build"
+    "lint": "eslint ./src ./__tests__",
+    "prepublish": "npm run lint && npm test && npm run build"
   },
   "devDependencies": {
     "babel-cli": "^6.24.1",
