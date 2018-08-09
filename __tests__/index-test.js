@@ -3,15 +3,15 @@ import { shallow } from 'enzyme'
 import Truncator from '../src/index'
 
 describe('Truncator', () => {
-  let pros, wrapper
+  let props, wrapper
 
   beforeEach(() => {
-    pros = {
+    props = {
       text: 'hello low',
       extraSpacing: 20,
     }
     wrapper = shallow(
-      <Truncator {...pros} />
+      <Truncator {...props} />
     )
   })
 
@@ -21,7 +21,7 @@ describe('Truncator', () => {
     })
 
     it('should set alteredText to the text prop', () => {
-      expect(wrapper.state().alteredText).toEqual(pros.text)
+      expect(wrapper.state().alteredText).toEqual(props.text)
     })
   })
 })
