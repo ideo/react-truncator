@@ -31,7 +31,7 @@ class Truncator extends React.Component {
   }
 
   truncate = () => {
-    const { text } = this.props
+    const { debug, text } = this.props
     const el = this.elRef
     if (!el) return
     const width = el.offsetWidth
@@ -49,6 +49,9 @@ class Truncator extends React.Component {
       this.setState({ alteredText: truncated, truncated: true })
     } else {
       this.setState({ alteredText: text, truncated: true })
+    }
+    if (debug) {
+      this.setState({ alteredText: text, truncated: false })
     }
   }
 
@@ -84,10 +87,12 @@ Truncator.propTypes = {
   text: PropTypes.string.isRequired,
   extraSpacing: PropTypes.number,
   minWidth: PropTypes.number,
+  debug: PropTypes.bool,
 }
 Truncator.defaultProps = {
   extraSpacing: 0,
   minWidth: 0,
+  debug: false,
 }
 
 export default Truncator

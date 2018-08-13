@@ -321,7 +321,6 @@ var Truncator = function (_React$Component) {
     };
 
     _this.truncate = function () {
-      console.log("TURNCATE");
       var text = _this.props.text;
 
       var el = _this.elRef;
@@ -360,14 +359,14 @@ var Truncator = function (_React$Component) {
       window.addEventListener('resize', this.onResize);
     }
   }, {
-    key: 'componentWillUnmount',
-    value: function componentWillUnmount() {
-      window.removeEventListener('resize', this.onResize);
-    }
-  }, {
     key: 'componentWillReceiveProps',
     value: function componentWillReceiveProps(nextProps) {
       this.truncate();
+    }
+  }, {
+    key: 'componentWillUnmount',
+    value: function componentWillUnmount() {
+      window.removeEventListener('resize', this.onResize);
     }
   }, {
     key: 'render',
