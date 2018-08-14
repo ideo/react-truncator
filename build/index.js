@@ -321,7 +321,9 @@ var Truncator = function (_React$Component) {
     };
 
     _this.truncate = function () {
-      var text = _this.props.text;
+      var _this$props = _this.props,
+          debug = _this$props.debug,
+          text = _this$props.text;
 
       var el = _this.elRef;
       if (!el) return;
@@ -340,6 +342,9 @@ var Truncator = function (_React$Component) {
         _this.setState({ alteredText: truncated, truncated: true });
       } else {
         _this.setState({ alteredText: text, truncated: true });
+      }
+      if (debug) {
+        _this.setState({ alteredText: text, truncated: false });
       }
     };
 
@@ -361,7 +366,11 @@ var Truncator = function (_React$Component) {
   }, {
     key: 'componentWillReceiveProps',
     value: function componentWillReceiveProps(nextProps) {
-      this.truncate();
+      var _this2 = this;
+
+      this.setState({ truncated: false }, function () {
+        _this2.truncate();
+      });
     }
   }, {
     key: 'componentWillUnmount',
@@ -371,7 +380,7 @@ var Truncator = function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
-      var _this2 = this;
+      var _this3 = this;
 
       var text = this.props.text;
       var _state = this.state,
@@ -381,7 +390,7 @@ var Truncator = function (_React$Component) {
       return _react2.default.createElement(
         'div',
         { style: this.mainStyles, ref: function ref(el) {
-            return _this2.elRef = el;
+            return _this3.elRef = el;
           } },
         truncated ? alteredText : text
       );
@@ -415,11 +424,13 @@ var Truncator = function (_React$Component) {
 Truncator.propTypes = {
   text: _propTypes2.default.string.isRequired,
   extraSpacing: _propTypes2.default.number,
-  minWidth: _propTypes2.default.number
+  minWidth: _propTypes2.default.number,
+  debug: _propTypes2.default.bool
 };
 Truncator.defaultProps = {
   extraSpacing: 0,
-  minWidth: 0
+  minWidth: 0,
+  debug: false
 };
 
 exports.default = Truncator;

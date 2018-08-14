@@ -19,7 +19,7 @@ class Truncator extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    this.truncate()
+    this.setState({ truncated: false }, () => { this.truncate() })
   }
 
   componentWillUnmount() {
