@@ -323,12 +323,13 @@ var Truncator = function (_React$Component) {
     _this.truncate = function () {
       var _this$props = _this.props,
           debug = _this$props.debug,
-          text = _this$props.text;
+          text = _this$props.text,
+          overrideWidth = _this$props.overrideWidth;
 
       var el = _this.elRef;
       if (!el) return;
-      var width = el.offsetWidth;
-      var overage = el.scrollWidth - el.offsetWidth;
+      var width = overrideWidth || el.offsetWidth;
+      var overage = el.scrollWidth - width;
       var typefaceModifier = el.scrollWidth / text.length;
       var lettersToRemove = parseInt(overage / typefaceModifier) + 1;
       if (lettersToRemove > 1) {
@@ -400,11 +401,12 @@ var Truncator = function (_React$Component) {
     get: function get() {
       var _props = this.props,
           extraSpacing = _props.extraSpacing,
-          minWidth = _props.minWidth;
+          minWidth = _props.minWidth,
+          overrideStyle = _props.overrideStyle;
       var truncated = this.state.truncated;
 
 
-      if (truncated) return {};
+      if (truncated) return overrideStyle;
       var styles = {
         overflowX: 'scroll',
         maxWidth: 'calc(100% - ' + extraSpacing + 'px)',
@@ -414,7 +416,7 @@ var Truncator = function (_React$Component) {
       if (minWidth > 0) {
         styles.minWidth = minWidth - extraSpacing + 'px';
       }
-      return styles;
+      return Object.assign({}, styles, overrideStyle);
     }
   }]);
 
@@ -425,12 +427,16 @@ Truncator.propTypes = {
   text: _propTypes2.default.string.isRequired,
   extraSpacing: _propTypes2.default.number,
   minWidth: _propTypes2.default.number,
-  debug: _propTypes2.default.bool
+  debug: _propTypes2.default.bool,
+  overrideWidth: _propTypes2.default.number,
+  overrideStyle: _propTypes2.default.shape()
 };
 Truncator.defaultProps = {
   extraSpacing: 0,
   minWidth: 0,
-  debug: false
+  debug: false,
+  overrideWidth: null,
+  overrideStyle: {}
 };
 
 exports.default = Truncator;

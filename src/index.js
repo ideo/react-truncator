@@ -31,11 +31,11 @@ class Truncator extends React.Component {
   }
 
   truncate = () => {
-    const { debug, text } = this.props
+    const { debug, text, overrideWidth } = this.props
     const el = this.elRef
     if (!el) return
-    const width = el.offsetWidth
-    const overage = el.scrollWidth - el.offsetWidth
+    const width = overrideWidth || el.offsetWidth
+    const overage = el.scrollWidth - width
     const typefaceModifier = el.scrollWidth / text.length
     let lettersToRemove = parseInt(overage / typefaceModifier) + 1
     if (lettersToRemove > 1) {
@@ -56,10 +56,10 @@ class Truncator extends React.Component {
   }
 
   get mainStyles() {
-    const { extraSpacing, minWidth } = this.props
+    const { extraSpacing, minWidth, overrideStyle } = this.props
     const { truncated } = this.state
 
-    if (truncated) return {}
+    if (truncated) return overrideStyle
     const styles = {
       overflowX: 'scroll',
       maxWidth: `calc(100% - ${extraSpacing}px)`,
@@ -69,7 +69,7 @@ class Truncator extends React.Component {
     if (minWidth > 0) {
       styles.minWidth = `${minWidth - extraSpacing}px`
     }
-    return styles
+    return Object.assign({}, styles, overrideStyle)
   }
 
   render() {
@@ -88,11 +88,15 @@ Truncator.propTypes = {
   extraSpacing: PropTypes.number,
   minWidth: PropTypes.number,
   debug: PropTypes.bool,
+  overrideWidth: PropTypes.number,
+  overrideStyle:PropTypes.shape(),
 }
 Truncator.defaultProps = {
   extraSpacing: 0,
   minWidth: 0,
   debug: false,
+  overrideWidth: null,
+  overrideStyle: {},
 }
 
 export default Truncator
