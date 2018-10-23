@@ -89,7 +89,7 @@ Truncator.propTypes = {
   minWidth: PropTypes.number,
   debug: PropTypes.bool,
   overrideWidth: PropTypes.number,
-  overrideStyle:PropTypes.shape(),
+  overrideStyle: PropTypes.shape(),
 }
 Truncator.defaultProps = {
   extraSpacing: 0,

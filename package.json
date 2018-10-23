@@ -7,7 +7,7 @@
   },
   "license" : "MIT",
   "repository": "https://github.com/ideo/react-truncator",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "main": "build/index.js",
   "peerDependencies": {
     "react": "^16.3"
