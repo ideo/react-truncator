@@ -56,14 +56,14 @@ class Truncator extends React.Component {
   }
 
   get mainStyles() {
-    const { extraSpacing, minWidth, overrideStyle } = this.props
+    const { extraSpacing, minWidth, overrideWidth, overrideStyle } = this.props
     const { truncated } = this.state
 
     if (truncated) return overrideStyle
     const styles = {
       overflowX: 'scroll',
       maxWidth: `calc(100% - ${extraSpacing}px)`,
-      width: '100%',
+      width: overrideWidth || '100%',
       whiteSpace: 'nowrap'
     }
     if (minWidth > 0) {

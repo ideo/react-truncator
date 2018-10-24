@@ -402,6 +402,7 @@ var Truncator = function (_React$Component) {
       var _props = this.props,
           extraSpacing = _props.extraSpacing,
           minWidth = _props.minWidth,
+          overrideWidth = _props.overrideWidth,
           overrideStyle = _props.overrideStyle;
       var truncated = this.state.truncated;
 
@@ -410,7 +411,7 @@ var Truncator = function (_React$Component) {
       var styles = {
         overflowX: 'scroll',
         maxWidth: 'calc(100% - ' + extraSpacing + 'px)',
-        width: '100%',
+        width: overrideWidth || '100%',
         whiteSpace: 'nowrap'
       };
       if (minWidth > 0) {
